@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div id="data-div"></div>
+
+@section scripts {
+    <script type="text/javascript">
+        setInterval(function () {
+            $.get('@Url.Action("GetData")', function (data) {
+                $("#data-div").html(data);
+            });
+        }, 5000);
+    </script>
+}
